@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة كتابة المتباينات</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-indigo-500 to-purple-500 text-white min-h-screen flex flex-col items-center justify-center">
+
+    <!-- شاشة تسجيل اسم الطالب -->
+    <div id="start-screen" class="text-center">
+        <h1 class="text-4xl font-bold mb-4">مرحبًا بك في لعبة كتابة المتباينات</h1>
+        <p class="text-lg mb-4">يرجى إدخال اسمك للبدء</p>
+        <input type="text" id="student-name" placeholder="اسم الطالب" class="px-4 py-2 text-black rounded-lg focus:outline-none">
+        <button id="start-game" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 mt-4">ابدأ اللعبة</button>
+    </div>
+
+    <!-- شاشة اللعبة -->
+    <div id="game-screen" class="hidden">
+        <header class="text-center">
+            <h1 class="text-4xl font-bold mb-4">لعبة كتابة المتباينات</h1>
+            <p class="text-lg" id="player-name"></p>
+        </header>
+
+        <div class="flex justify-between items-center w-96 mt-4">
+            <!-- النقاط -->
+            <div id="score" class="text-lg font-bold">النقاط: 0</div>
+            <!-- أعلى النقاط -->
+            <div id="high-score" class="text-lg font-bold">أعلى النقاط: 0</div>
+            <!-- المؤقت -->
+            <div id="timer" class="text-lg font-bold">الوقت: 30 ثانية</div>
+        </div>
+
+        <main class="bg-white text-black p-6 rounded-xl shadow-lg w-96 mt-6">
+            <p id="question" class="text-xl font-semibold text-center">السؤال سيظهر هنا...</p>
+
+            <!-- المدخلات والدائرة -->
+            <div class="flex items-center justify-center gap-4 mt-6">
+                <!-- مربع المتغير -->
+                <input type="text" id="variable" maxlength="1" class="w-20 border border-gray-300 rounded-lg px-3 py-2 text-center text-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="x">
+                
+                <!-- الدائرة -->
+                <div id="selected-symbol" class="w-16 h-16 bg-gray-200 flex items-center justify-center rounded-full text-2xl font-bold text-gray-700">
+                    ؟
+                </div>
+                
+                <!-- مربع العدد -->
+                <input type="number" id="number" class="w-20 border border-gray-300 rounded-lg px-3 py-2 text-center text-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="15">
+            </div>
+
+            <!-- الرموز -->
+            <div class="mt-4">
+                <p class="text-lg font-medium">اختر رمز المتباينة:</p>
+                <div class="flex justify-center gap-4 mt-2">
+                    <button class="btn-symbol" data-symbol="<">&lt;</button>
+                    <button class="btn-symbol" data-symbol="≤">&le;</button>
+                    <button class="btn-symbol" data-symbol=">">&gt;</button>
+                    <button class="btn-symbol" data-symbol="≥">&ge;</button>
+                    <button class="btn-symbol" data-symbol="≠">&ne;</button>
+                </div>
+            </div>
+
+            <div class="mt-6 text-center">
+                <button id="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">إرسال الإجابة</button>
+                <button id="next-question" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 mt-4 hidden">السؤال التالي</button>
+            </div>
+
+            <div id="feedback" class="mt-4 text-center font-medium"></div>
+        </main>
+    </div>
+
+    <footer class="mt-8">
+        <p>© 2025 جميع الحقوق محفوظة - لعبة كتابة المتباينات</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
